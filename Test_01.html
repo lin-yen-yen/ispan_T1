@@ -9,11 +9,22 @@
     <script src="./_js/bootstrap.bundle.js"></script>
 
     <title>Document</title>
+    <style>
+        /* 字型設定 */
+        @font-face {
+            src: url("font_face/GlowSansTC-Wide-v0.93/GlowSansTC-Wide-ExtraLight.otf");
+            font-family: "GlowSansTC Wide ExtraLight";
+        }
+
+        #HeaderFont {
+            font-family: "GlowSansTC Wide ExtraLight";
+        }
+    </style>
 </head>
 
 <body>
     <!-- Header -->
-    <div class="container fixed-top ">
+    <div id="HeaderFont" class="container fixed-top ">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                 <svg class="bi me-2" width="40" height="32">
@@ -32,74 +43,118 @@
         </header>
     </div>
 
-    <!-- Hero Image -->
-    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
-                aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    
+        <!-- Hero Image -->
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./img/Hero_image_up.jpg" width="100%">
+                    <div class="container">
+                        <div class="carousel-caption text-start">
+                            <h1>عنوان المثال.</h1>
+                            <p>تشير الدراسات الإحصائية حسب الجمعية الأمريكية للغات بأن الإقبال على العربية زاد %126 في
+                                الولايات المتحدة الأمريكية وحدها بين عامي 2002 و2009م.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#">سجل اليوم</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="./img/Hero_image_1_up.jpg" width="100%">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>عنوان مثال آخر.</h1>
+                            <p>حسب المجلس الثقافي البريطاني فإن تعليم الإنجليزية داخل بريطانيا يسهم في تعزيز اقتصادها
+                                بما
+                                يتجاوز ملياري جنيه سنوياً، كما أنه وفر أكثر من 26 ألف وظيفة.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#">أعرف أكثر</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                        <img src="./img/Hero_image_2_up.jpg" width="100%">
+                    <div class="container">
+                        <div class="carousel-caption text-end">
+                            <h1>واحد أكثر لقياس جيد.</h1>
+                            <p>الإحصاءات لحجم الاستثمار اللغوي خارج بريطانيا تتفاوت من سنة لأخرى إلا أن المدير التنفيذي
+                                للمجلس الثقافي البريطاني إدي بايرز يرى أن استثمار تعليم الإنجليزية في الخارج لا يحسب على
+                                المستوى المالي فحسب بل على المستوى السياسي أيضاً.</p>
+                            <p><a class="btn btn-lg btn-primary" href="#">تصفح المعرض</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">السابق</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">التالي</span>
+            </button>
         </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <svg class="bd-placeholder-img" width="100%" height="768px" aria-hidden="true"
-                    preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <image href="./img/Hero_image_up.jpg" width="100%">
-                </svg>
 
-                <div class="container">
-                    <div class="carousel-caption text-start">
-                        <h1>عنوان المثال.</h1>
-                        <p>تشير الدراسات الإحصائية حسب الجمعية الأمريكية للغات بأن الإقبال على العربية زاد %126 في
-                            الولايات المتحدة الأمريكية وحدها بين عامي 2002 و2009م.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">سجل اليوم</a></p>
-                    </div>
-                </div>
+        <!-- time -->
+        <div class="d-flex p-3 justify-content-center" style="color: rgb(100, 100, 100);">
+            <div class="p-2 border-end">時間</div>
+            <div class="p-2 border-end">
+                    <a href="#check-in">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm280 240q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z"/></svg>
+                    </a>
+                    <input id="check-in" type="text" placeholder="入住日期">
             </div>
-            <div class="carousel-item">
-                <svg class="bd-placeholder-img" width="100%" height="768px" aria-hidden="true"
-                    preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <rect width="100%" height="100%" fill="#777" />
-                </svg>
-
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>عنوان مثال آخر.</h1>
-                        <p>حسب المجلس الثقافي البريطاني فإن تعليم الإنجليزية داخل بريطانيا يسهم في تعزيز اقتصادها بما
-                            يتجاوز ملياري جنيه سنوياً، كما أنه وفر أكثر من 26 ألف وظيفة.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">أعرف أكثر</a></p>
-                    </div>
-                </div>
+            <div class="p-2 border-end">
+                <a href="#check-out">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368"><path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm280 240q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z"/></svg>
+                </a>
+                <input id="check-out" type="text" placeholder="退房日期">
             </div>
-            <div class="carousel-item">
-                <svg class="bd-placeholder-img" width="100%" height="768px" aria-hidden="true"
-                    preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <rect width="100%" height="100%" fill="#777" />
-                </svg>
-
-                <div class="container">
-                    <div class="carousel-caption text-end">
-                        <h1>واحد أكثر لقياس جيد.</h1>
-                        <p>الإحصاءات لحجم الاستثمار اللغوي خارج بريطانيا تتفاوت من سنة لأخرى إلا أن المدير التنفيذي
-                            للمجلس الثقافي البريطاني إدي بايرز يرى أن استثمار تعليم الإنجليزية في الخارج لا يحسب على
-                            المستوى المالي فحسب بل على المستوى السياسي أيضاً.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">تصفح المعرض</a></p>
-                    </div>
-                </div>
-            </div>
+            <div class="p-2 border-end"><button>立即訂房</button></div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">السابق</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">التالي</span>
-        </button>
-    </div>
+
+        <hr>
+        <h1 style="text-align: center;">最新公告</h1>
+        <div class="row">
+            <div class="col-lg-2">
+                
+            </div>
+            <div class="card col-lg-2">
+                <div class="card-header">草帽海賊團</div>
+                    <div class="card-body">
+                        <img class="img-fluid" src="./img/card_T1.jpg">
+                        <h5 class="card-title">千陽號</h5>
+                        <p class="card-text">sunny</p>
+                    </div>
+            </div>
+            <div class="card col-lg-2">
+                <div class="card-header">草帽海賊團</div>
+                    <div class="card-body">
+                        <img class="img-fluid" src="./img/card_2.jpg">
+                        <h5 class="card-title">千陽號</h5>
+                        <p class="card-text">sunny</p>
+                    </div>
+            </div>
+            <div class="col-lg-2">
+                
+            </div>
+            <div class="col-lg-2">
+                
+            </div>
+            <div class="col-lg-2">
+                
+            </div>
+
+        </div>
+
+    
 
     <!-- Footer -->
-    <div class="container fixed-bottom">
+    <!-- <div class="container fixed-bottom">
         <footer class="py-5">
             <div class="row">
                 <div class="col-6 col-md-2 mb-3">
@@ -163,7 +218,7 @@
                 </ul>
             </div>
         </footer>
-    </div>
+    </div> -->
 </body>
 
 </html>
