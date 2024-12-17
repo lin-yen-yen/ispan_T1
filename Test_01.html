@@ -9,40 +9,65 @@
     <script src="./_js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="./_css/flatpickr.min.css">
 
-    
+
 
     <title>楓眠旅店/全台住宿推薦/全網最低價</title>
     <link rel="icon" href="./img/logo.png">
     <style>
-        /* 字型設定 */
+        /* 1.字型設定 */
         @font-face {
             src: url("font_face/GlowSansTC-Wide-v0.93/GlowSansTC-Wide-ExtraLight.otf");
             font-family: "GlowSansTC Wide ExtraLight";
         }
 
+        /* 2.字型套用 */
         #HeaderFont {
             font-family: "GlowSansTC Wide ExtraLight";
         }
+
+        /* 懸浮頁背景顏色 */
+        #Header {
+            background-color: rgba(255, 255, 255, 0);
+            margin-left: 0px;
+            margin-right: 0px;
+            transition: background-color 0.2s ease;
+            /* 平滑變化效果 */
+        }
+        
+        /* 懸浮頁的文字顏色 */
+        #scroll-imgtext,
+        #AdoutMe,
+        #Latest,
+        #RoomType,
+        #Traffic,
+        #Facility
+        {
+            color: rgb(255, 255, 255,1);
+        }
+
     </style>
 </head>
 
 <body>
     <!-- Header -->
-    <div id="HeaderFont" class="container fixed-top ">
+    <div id="Header" class="fixed-top">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                 <svg class="bi me-2" width="40" height="32">
                     <use xlink:href="#bootstrap" />
                 </svg>
-                <span class="fs-4">LOGO</span>
+                <span id="scroll-imgtext" class="fs-4">
+                    <img src="./img/logo.png" width="36px" height="36.108px">
+                    楓眠
+                </span>
             </a>
 
-            <ul class="nav nav-pills">
-                <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">關於我們</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">最新公告</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">房型介紹</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">交通資訊</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">強檔優惠</a></li>
+            <ul class="nav nav-pills pe-5">
+                <li class="nav-item"><a id="AdoutMe" href="#" class="nav-link active" aria-current="page">關於我們</a></li>
+                <li class="nav-item"><a id="Latest" href="#" class="nav-link">最新公告</a></li>
+                <li class="nav-item"><a id="RoomType" href="#" class="nav-link">房型介紹</a></li>
+                <li class="nav-item"><a id="Traffic" href="#" class="nav-link">交通資訊</a></li>
+                <li class="nav-item"><a id="Facility" href="#" class="nav-link">內部設施</a></li>
             </ul>
         </header>
     </div>
@@ -61,10 +86,9 @@
                 <img src="./img/Hero_image_up.jpg" width="100%">
                 <div class="container">
                     <div class="carousel-caption text-start">
-                        <h1>عنوان المثال.</h1>
-                        <p>تشير الدراسات الإحصائية حسب الجمعية الأمريكية للغات بأن الإقبال على العربية زاد %126 في
-                            الولايات المتحدة الأمريكية وحدها بين عامي 2002 و2009م.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">سجل اليوم</a></p>
+                        <h1>帶給您良好的住房體驗</h1>
+                        <p>提供頂級的住房體驗，帶給旅客美好的放鬆假期。</p>
+                        <p><a class="btn btn-lg btn-primary" href="#">LEARN MORE</a></p>
                     </div>
                 </div>
             </div>
@@ -72,11 +96,9 @@
                 <img src="./img/Hero_image_1_up.jpg" width="100%">
                 <div class="container">
                     <div class="carousel-caption">
-                        <h1>عنوان مثال آخر.</h1>
-                        <p>حسب المجلس الثقافي البريطاني فإن تعليم الإنجليزية داخل بريطانيا يسهم في تعزيز اقتصادها
-                            بما
-                            يتجاوز ملياري جنيه سنوياً، كما أنه وفر أكثر من 26 ألف وظيفة.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">أعرف أكثر</a></p>
+                        <h1>交通方便，景點眾多</h1>
+                        <p>提供停車場和許多娛樂設施，方便的大眾交通工具，鄰近海邊，是您休閒度假最佳選擇。</p>
+                        <p><a class="btn btn-lg btn-primary" href="#">LEARN MORE</a></p>
                     </div>
                 </div>
             </div>
@@ -84,11 +106,9 @@
                 <img src="./img/Hero_image_2_up.jpg" width="100%">
                 <div class="container">
                     <div class="carousel-caption text-end">
-                        <h1>واحد أكثر لقياس جيد.</h1>
-                        <p>الإحصاءات لحجم الاستثمار اللغوي خارج بريطانيا تتفاوت من سنة لأخرى إلا أن المدير التنفيذي
-                            للمجلس الثقافي البريطاني إدي بايرز يرى أن استثمار تعليم الإنجليزية في الخارج لا يحسب على
-                            المستوى المالي فحسب بل على المستوى السياسي أيضاً.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">تصفح المعرض</a></p>
+                        <h1>飯店內娛樂設施，大人小孩都開心</h1>
+                        <p>帶給您最好的住房品質，同時為您獻上頂級的娛樂設施，不管是健身房、麻將館、孩童遊憩區、spa按摩區等應有盡有，歡迎您來體驗~</p>
+                        <p><a class="btn btn-lg btn-primary" href="#">LEARN MORE</a></p>
                     </div>
                 </div>
             </div>
@@ -132,11 +152,11 @@
     <!-- 公告 -->
     <hr>
     <h1 style="text-align: center;">最新公告</h1>
-    <div class="row">
-        <div class="col-lg-2">
+    <div class="row mt-3" style="width: 100%;margin-left: 0px;margin-right: 0px;">
+        <div class="col-lg-2 mx-1">
 
         </div>
-        <div class="card col-lg-2">
+        <div class="card col-lg-2 mx-1">
             <div class="card-header">草帽海賊團</div>
             <div class="card-body">
                 <img class="img-fluid" src="./img/card_T1.jpg">
@@ -144,7 +164,7 @@
                 <p class="card-text">sunny</p>
             </div>
         </div>
-        <div class="card col-lg-2">
+        <div class="card col-lg-2 mx-1">
             <div class="card-header">草帽海賊團</div>
             <div class="card-body">
                 <img class="img-fluid" src="./img/card_2.jpg">
@@ -152,13 +172,13 @@
                 <p class="card-text">sunny</p>
             </div>
         </div>
-        <div class="col-lg-2">
+        <div class="col-lg-2 mx-1">
 
         </div>
-        <div class="col-lg-2">
+        <div class="col-lg-2 mx-1">
 
         </div>
-        <div class="col-lg-2">
+        <div class="col-lg-2 mx-1">
 
         </div>
 
@@ -235,6 +255,39 @@
 
     <script src="./_js/flatpickr.min.js"></script>
     <script>
+
+        window.addEventListener('scroll', () => {
+            const scrollDiv = document.querySelector('#Header'); // 目標 div
+            let scroll2Div = document.querySelector('#scroll-imgtext'); // 目標 div
+            let scroll3a = document.querySelector('#AdoutMe');
+            let scroll4a = document.querySelector('#Latest');
+            let scroll5a = document.querySelector('#RoomType');
+            let scroll6a = document.querySelector('#Traffic');
+            let scroll7a = document.querySelector('#Facility');
+
+            const scrollTop = window.scrollY; // 獲取卷軸滾動高度
+            const maxScroll = 500;
+            let ratio = Math.min(scrollTop / maxScroll, 1); // 限制比例最大為 1
+            let r = Math.round(255 * (1 - ratio)); // 紅色值
+            let g = Math.round(255 * (1 - ratio)); // 綠色值
+            let b = Math.round(255 * (1 - ratio)); // 藍色值
+
+            // 設定透明度範圍 (0.0 ~ 1)
+            let opacity = Math.min(1, 0.0 + scrollTop / maxScroll);
+            let opacity2 = Math.min(0, 1.0 - scrollTop / maxScroll);
+            // 透明度邏輯：卷軸滾動 500px 後，透明度從 0.0 過渡到 1
+
+            // 更新背景顏色的透明度
+            scrollDiv.style.backgroundColor = `rgba(255, 255, 255, ${opacity})`;
+            scroll2Div.style.color = `rgba(${r}, ${g}, ${b}, 1)`;
+            scroll3a.style.color = `rgba(${r}, ${g}, ${b}, 1)`;
+            scroll4a.style.color = `rgba(${r}, ${g}, ${b}, 1)`;
+            scroll5a.style.color = `rgba(${r}, ${g}, ${b}, 1)`;
+            scroll6a.style.color = `rgba(${r}, ${g}, ${b}, 1)`;
+            scroll7a.style.color = `rgba(${r}, ${g}, ${b}, 1)`;
+    
+        });
+
         function updateTime() {
             const now = new Date();
             const options = {
@@ -267,12 +320,12 @@
 
         flatpickr("#check-in", {
             dateFormat: "Y-m-d H:i", // 设置日期格式
-            enableTime: true, 
+            enableTime: true,
         });
 
         flatpickr("#check-out", {
             dateFormat: "Y-m-d H:i", // 设置日期格式
-            enableTime: true, 
+            enableTime: true,
         });
 
     </script>
