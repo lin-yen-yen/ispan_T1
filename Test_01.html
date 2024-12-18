@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./_css/bootstrap.css">
     <script src="./_js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="./_css/flatpickr.min.css">
+    <link rel="stylesheet" href="./_css/animate.css">
+    <link rel="stylesheet" href="./_css/loading.css">
 
 
 
@@ -33,18 +35,41 @@
             transition: background-color 0.2s ease;
             /* 平滑變化效果 */
         }
-        
+
         /* 懸浮頁的文字顏色 */
         #scroll-imgtext,
         #AdoutMe,
         #Latest,
         #RoomType,
         #Traffic,
-        #Facility
-        {
-            color: rgb(255, 255, 255,1);
+        #Facility {
+            color: rgb(255, 255, 255, 1);
         }
 
+        /* 房型介紹設定 */
+        #RoomType1 {
+            position: absolute;
+            left: -600px;
+            padding-top: 16px;
+            /* 初始位置在左側之外 */
+            /* transform: translateY(-50%); */
+            transition: all 1s ease-out;
+        }
+        
+        #block1{
+            position: absolute;
+            right: -60px;
+            transition: all 3s ease-out;
+        }
+
+        #RoomType1.visible{
+            left: 50px;
+            /* 滾動後移入到頁面內 */
+        }
+        #block1.visible{
+            right: 40px;
+            /* 滾動後移入到頁面內 */
+        }
     </style>
 </head>
 
@@ -157,31 +182,49 @@
 
         </div>
         <div class="card col-lg-2 mx-1">
-            <div class="card-header">草帽海賊團</div>
+            <div class="card-header">年終旅遊特展</div>
             <div class="card-body">
                 <img class="img-fluid" src="./img/card_T1.jpg">
-                <h5 class="card-title">千陽號</h5>
-                <p class="card-text">sunny</p>
+                <h5 class="card-title">截止至12月底</h5>
+                <p class="card-text">帶著大人小孩開心出遊</p>
             </div>
         </div>
         <div class="card col-lg-2 mx-1">
-            <div class="card-header">草帽海賊團</div>
+            <div class="card-header">遊樂園特價限時10%</div>
             <div class="card-body">
                 <img class="img-fluid" src="./img/card_2.jpg">
-                <h5 class="card-title">千陽號</h5>
-                <p class="card-text">sunny</p>
+                <h5 class="card-title">活動詳情請點下方連結</h5>
+                <p class="card-text"><a href="#">LEARN MORE</a></p>
+            </div>
+        </div>
+        <div class="card col-lg-2 mx-1">
+            <div class="card-header">水上趣味競賽</div>
+            <div class="card-body">
+                <img class="img-fluid" src="./img/card_3.jpg">
+                <h5 class="card-title">憑住宿即可參加</h5>
+                <p class="card-text">還可獲得精美小禮物，趕快來一起同樂吧</p>
+            </div>
+        </div>
+        <div class="card col-lg-2 mx-1">
+            <div class="card-header">住宿最低35%</div>
+            <div class="card-body">
+                <img class="img-fluid" src="./img/card_4.jpg">
+                <h5 class="card-title">機會難得</h5>
+                <p class="card-text">慶祝中華職棒奪冠活動到明年1月</p>
             </div>
         </div>
         <div class="col-lg-2 mx-1">
 
         </div>
-        <div class="col-lg-2 mx-1">
 
-        </div>
-        <div class="col-lg-2 mx-1">
+    </div>
 
-        </div>
-
+    <!-- 房型介紹 -->
+    <hr>
+    <h1 style="text-align: center;">房型介紹</h1>
+    <div style="position: relative; height: 100vh;">
+        <img id="block1" src="./img/RoomType-1.jpg" width="50%">
+        <img id="RoomType1" src="./img/RoomType-1.jpg" width="50%">
     </div>
 
 
@@ -285,7 +328,7 @@
             scroll5a.style.color = `rgba(${r}, ${g}, ${b}, 1)`;
             scroll6a.style.color = `rgba(${r}, ${g}, ${b}, 1)`;
             scroll7a.style.color = `rgba(${r}, ${g}, ${b}, 1)`;
-    
+
         });
 
         function updateTime() {
@@ -326,6 +369,27 @@
         flatpickr("#check-out", {
             dateFormat: "Y-m-d H:i", // 设置日期格式
             enableTime: true,
+        });
+
+        // 房型動畫
+        document.addEventListener("scroll", function () {
+            const RoomType1 = document.getElementById("RoomType1");
+            const rect = RoomType1.getBoundingClientRect();
+            const block1 = document.getElementById("block1");
+            const rect2 = block1.getBoundingClientRect();
+
+            // 當圖片接近可視範圍時觸發動畫
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                RoomType1.classList.add("visible");
+            } else {
+                RoomType1.classList.remove("visible");
+            }
+
+            if (rect2.top < window.innerHeight && rect2.bottom > 0) {
+                block1.classList.add("visible");
+            } else {
+                block1.classList.remove("visible");
+            }
         });
 
     </script>
