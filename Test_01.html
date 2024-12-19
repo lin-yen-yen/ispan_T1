@@ -49,25 +49,28 @@
         /* 房型介紹設定 */
         #RoomType1 {
             position: absolute;
-            left: -600px;
-            padding-top: 16px;
+            top: 50%;
+            left: 0;
+            opacity: 0;
             /* 初始位置在左側之外 */
-            /* transform: translateY(-50%); */
-            transition: all 1s ease-out;
+            transform: translateY(-50%);
+            transition: opacity 0.5s ease, left 0.5s ease;
         }
-        
-        #block1{
+
+        #block1 {
             position: absolute;
-            right: -60px;
+            top: 50%;
+            left: 10px;
             transition: all 3s ease-out;
         }
 
-        #RoomType1.visible{
-            left: 50px;
+        #RoomType1.visible {
+            opacity: 1;
             /* 滾動後移入到頁面內 */
         }
-        #block1.visible{
-            right: 40px;
+
+        #block1.visible {
+            left: 100px;
             /* 滾動後移入到頁面內 */
         }
     </style>
@@ -96,6 +99,20 @@
             </ul>
         </header>
     </div>
+
+    <!-- 廣告 -->
+    <div id="floating-ad-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+
+        <button id="close-ad-button"
+            style="position: absolute; top: -10px; right: -10px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; z-index: 10000;">
+            X
+        </button>
+
+        <iframe src="./googleWebDesigner/Test_advertise/Test_advertise.html" width="300" height="250"
+            style="bottom: 20px; right: 20px; z-index: 9999; border: none;">
+        </iframe>
+    </div>
+
 
 
     <!-- Hero Image -->
@@ -140,11 +157,11 @@
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">السابق</span>
+            <span class="visually-hidden"></span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">التالي</span>
+            <span class="visually-hidden"></span>
         </button>
     </div>
 
@@ -206,7 +223,7 @@
             </div>
         </div>
         <div class="card col-lg-2 mx-1">
-            <div class="card-header">住宿最低35%</div>
+            <div class="card-header">住宿最高享35%</div>
             <div class="card-body">
                 <img class="img-fluid" src="./img/card_4.jpg">
                 <h5 class="card-title">機會難得</h5>
@@ -222,12 +239,44 @@
     <!-- 房型介紹 -->
     <hr>
     <h1 style="text-align: center;">房型介紹</h1>
-    <div style="position: relative; height: 100vh;">
-        <img id="block1" src="./img/RoomType-1.jpg" width="50%">
-        <img id="RoomType1" src="./img/RoomType-1.jpg" width="50%">
+    <div class="container">
+        <!-- 每個 row 表示一列，內部只有 1 個 column -->
+        <div class="row" style="position: relative; height: 450px; overflow: hidden;">
+            <img id="RoomType1" src="./img/RoomType-1.jpg">
+            <ul id="block1" style="list-style-type: none;">
+                <li style="font-size: 24pt;">
+                    雅致雙人床
+                </li>
+                <li style="font-size: 16pt;">
+                    高雅舒適
+                </li>
+                <li style="font-size: 24pt;">
+                    NT$20,000
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <img id="RoomType2" src="./img/RoomType-2.jpg" style="padding-top: 10px;">
+        </div>
+        <div class="row">
+            <img id="RoomType3" src="./img/RoomType3pp-3.jpg" style="padding-top: 10px;">
+        </div>
+        <div class="row">
+            <img id="RoomType4" src="./img/RoomType4pp-4.jpg" style="padding-top: 10px;">
+        </div>
+        <div class="row">
+            <img id="RoomType5" src="./img/RoomType-5.jpg" style="padding-top: 10px;">
+        </div>
+        <div class="row">
+            <img id="RoomType6" src="./img/RoomType4people-6.jpg" style="padding-top: 10px;">
+        </div>
+        <div class="row">
+            <img id="RoomType7" src="./img/RoomTypemanypp-7.jpg" style="padding-top: 10px;">
+        </div>
+        <div class="row">
+            <img id="RoomType8" src="./img/RoomTypemanypp-8.jpg" style="padding-top: 10px;">
+        </div>
     </div>
-
-
 
     <!-- Footer -->
     <!-- <div class="container fixed-bottom">
@@ -297,8 +346,8 @@
     </div> -->
 
     <script src="./_js/flatpickr.min.js"></script>
-    <script>
 
+    <script>
         window.addEventListener('scroll', () => {
             const scrollDiv = document.querySelector('#Header'); // 目標 div
             let scroll2Div = document.querySelector('#scroll-imgtext'); // 目標 div
@@ -392,6 +441,11 @@
             }
         });
 
+        // 為關閉按鈕添加點擊事件
+        document.getElementById('close-ad-button').addEventListener('click', function () {
+            const adContainer = document.getElementById('floating-ad-container');
+            adContainer.style.display = 'none'; // 隱藏廣告容器
+        });
     </script>
 </body>
 
