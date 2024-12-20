@@ -47,15 +47,6 @@
         }
 
         /* 房型介紹設定 */
-        #RoomType1 {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            opacity: 0;
-            /* 初始位置在左側之外 */
-            transform: translateY(-50%);
-            transition: opacity 0.5s ease, left 0.5s ease;
-        }
 
         #block1 {
             position: absolute;
@@ -64,14 +55,26 @@
             transition: all 3s ease-out;
         }
 
-        #RoomType1.visible {
-            opacity: 1;
-            /* 滾動後移入到頁面內 */
+        #block2 {
+            position: absolute;
+            top: 30%;
+            left: 100px;
+
+        }
+
+        #block2.visible {
+            animation-fill-mode: forwards;
+            animation-delay: 1s;
         }
 
         #block1.visible {
             left: 100px;
             /* 滾動後移入到頁面內 */
+        }
+
+        #block1 li,
+        #block2 li {
+            -webkit-text-stroke: 0.5px black;
         }
     </style>
 </head>
@@ -108,7 +111,7 @@
             X
         </button>
 
-        <iframe src="./googleWebDesigner/Test_advertise/Test_advertise.html" width="300" height="250"
+        <iframe src="./googleWebDesigner/shopee廣告/shopee廣告.html" width="300" height="250"
             style="bottom: 20px; right: 20px; z-index: 9999; border: none;">
         </iframe>
     </div>
@@ -244,19 +247,24 @@
         <div class="row" style="position: relative; height: 450px; overflow: hidden;">
             <img id="RoomType1" src="./img/RoomType-1.jpg">
             <ul id="block1" style="list-style-type: none;">
-                <li style="font-size: 24pt;">
+                <li style="font-size: 32pt; color: #fafafa;">
                     雅致雙人床
                 </li>
-                <li style="font-size: 16pt;">
+                <li style="font-size: 24pt; color: #fafafa;">
                     高雅舒適
                 </li>
-                <li style="font-size: 24pt;">
+                <li style="font-size: 32pt; color: #fafafa;">
                     NT$20,000
                 </li>
             </ul>
         </div>
-        <div class="row">
+        <div class="row" style="position: relative;  overflow: hidden;">
             <img id="RoomType2" src="./img/RoomType-2.jpg" style="padding-top: 10px;">
+            <ul id="block2" class="animate__animated animate__slideOutRight" style="list-style-type: none; width: 50%;">
+                <li style="font-size: 32pt; color: #fafafa;">奢華高貴風</li>
+                <li style="font-size: 32pt; color: #fafafa;">體驗貴族般的生活</li>
+                <li style="font-size: 32pt; color: #fafafa;">NT$40,000</li>
+            </ul>
         </div>
         <div class="row">
             <img id="RoomType3" src="./img/RoomType3pp-3.jpg" style="padding-top: 10px;">
@@ -422,16 +430,25 @@
 
         // 房型動畫
         document.addEventListener("scroll", function () {
-            const RoomType1 = document.getElementById("RoomType1");
-            const rect = RoomType1.getBoundingClientRect();
+            const block2 = document.getElementById("block2");
+            const rect = block2.getBoundingClientRect();
             const block1 = document.getElementById("block1");
             const rect2 = block1.getBoundingClientRect();
 
             // 當圖片接近可視範圍時觸發動畫
             if (rect.top < window.innerHeight && rect.bottom > 0) {
-                RoomType1.classList.add("visible");
-            } else {
-                RoomType1.classList.remove("visible");
+                // 如果没有正在进行的动画，触发动画
+                if (!block2.classList.contains("animating")) {
+                    block2.classList.add("animate__slideOutRight", "visible", "animating");
+
+                    // 添加动画结束事件监听器
+                    block2.addEventListener("animationend", function handleAnimationEnd() {
+                        // 清除动画相关类
+                        block2.classList.remove("animate__slideOutRight", "visible", "animating");
+                        // 移除事件监听器
+                        block2.removeEventListener("animationend", handleAnimationEnd);
+                    });
+                }
             }
 
             if (rect2.top < window.innerHeight && rect2.bottom > 0) {
@@ -446,6 +463,9 @@
             const adContainer = document.getElementById('floating-ad-container');
             adContainer.style.display = 'none'; // 隱藏廣告容器
         });
+
+        // 所有動畫時間拉長10倍
+        document.documentElement.style.setProperty('--animate-duration', '10s');
     </script>
 </body>
 
