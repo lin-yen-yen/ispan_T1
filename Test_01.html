@@ -46,6 +46,14 @@
             color: rgb(255, 255, 255, 1);
         }
 
+        #AdoutMe1,
+        #Latest1,
+        #RoomType1,
+        #Traffic1,
+        #Facility1 {
+            color: rgb(0, 0, 0, 1);
+        }
+
         /* 房型介紹設定 */
 
         #block1 {
@@ -76,30 +84,60 @@
         #block2 li {
             -webkit-text-stroke: 0.5px black;
         }
+
+        .navbar-nav {
+            flex-direction: column;
+            /* 在大螢幕時，導航列為垂直方向 */
+            align-items: flex-start;
+            /* 對齊左側 */
+        }
     </style>
 </head>
 
 <body>
-    <!-- Header -->
-    <div id="Header" class="fixed-top">
-        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                <svg class="bi me-2" width="40" height="32">
-                    <use xlink:href="#bootstrap" />
-                </svg>
-                <span id="scroll-imgtext" class="fs-4">
-                    <img src="./img/logo.png" width="36px" height="36.108px">
-                    楓眠
-                </span>
-            </a>
 
-            <ul class="nav nav-pills pe-5">
-                <li class="nav-item"><a id="AdoutMe" href="#" class="nav-link active" aria-current="page">關於我們</a></li>
-                <li class="nav-item"><a id="Latest" href="#" class="nav-link">最新公告</a></li>
-                <li class="nav-item"><a id="RoomType" href="#" class="nav-link">房型介紹</a></li>
-                <li class="nav-item"><a id="Traffic" href="#" class="nav-link">交通資訊</a></li>
-                <li class="nav-item"><a id="Facility" href="#" class="nav-link">內部設施</a></li>
-            </ul>
+    <!-- Header -->
+    <div id="Header" class="fixed-top border-bottom">
+        <header class="container">
+            <div class="d-flex flex-wrap justify-content-center py-3 mb-4 clearfix">
+                <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32">
+                        <use xlink:href="#bootstrap" />
+                    </svg>
+                    <span id="scroll-imgtext" class="fs-4">
+                        <img src="./img/logo.png" width="36px" height="36.108px">
+                        楓眠
+                    </span>
+                </a>
+
+                <!-- 導覽項目 -->
+                <ul class="nav nav-pills d-none d-md-flex pe-5">
+                    <li class="nav-item"><a id="AdoutMe" href="#" class="nav-link">關於我們</a></li>
+                    <li class="nav-item"><a id="Latest" href="#" class="nav-link">最新公告</a></li>
+                    <li class="nav-item"><a id="RoomType" href="#" class="nav-link">房型介紹</a></li>
+                    <li class="nav-item"><a id="Traffic" href="#" class="nav-link">內部設施</a></li>
+                    <li class="nav-item"><a id="Facility" href="#" class="nav-link">交通資訊</a></li>
+                </ul>
+
+                <!-- 漢堡選單按鈕（<=768px 顯示） -->
+                <button class="navbar-toggler float-end d-md-none ms-auto" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation" style="width: 6%; height: 6%;">
+                    <span><img src="./img/menu.png" width="100%"></span>
+                </button>
+
+                <!-- 小螢幕漢堡選單的內容 -->
+                <div class="collapse navbar-collapse d-md-none" id="navbarNav">
+                    <ul class="navbar-nav me-lg-auto">
+                        <li class="nav-item"><a id="AdoutMe1" href="#" class="nav-link active"
+                                aria-current="page">關於我們</a></li>
+                        <li class="nav-item"><a id="Latest1" href="#" class="nav-link">最新公告</a></li>
+                        <li class="nav-item"><a id="RoomType1" href="#" class="nav-link">房型介紹</a></li>
+                        <li class="nav-item"><a id="Traffic1" href="#" class="nav-link">交通資訊</a></li>
+                        <li class="nav-item"><a id="Facility1" href="#" class="nav-link">內部設施</a></li>
+                    </ul>
+                </div>
+            </div>
         </header>
     </div>
 
@@ -115,8 +153,6 @@
             style="bottom: 20px; right: 20px; z-index: 9999; border: none;">
         </iframe>
     </div>
-
-
 
     <!-- Hero Image -->
     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -169,9 +205,9 @@
     </div>
 
     <!-- time -->
-    <div class="d-flex p-3 justify-content-center" style="color: rgb(100, 100, 100); margin-top: 16px;">
-        <span id="time" class="p-2 border-end text-center">時間</span>
-        <div class="p-2 border-end">
+    <div class="row d-flex justify-content-center w-100" style="color: rgb(100, 100, 100); margin-top: 16px;">
+        <span id="time" class="p-2 col-xl-3 col-sm-12 border-end text-center">時間</span>
+        <div class="p-2 border-end col-xl-3 col-sm-4 text-center">
             <a href="#check-in">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                     fill="#5f6368">
@@ -181,7 +217,7 @@
             </a>
             <input id="check-in" type="text" placeholder="入住日期">
         </div>
-        <div class="p-2 border-end">
+        <div class="p-2 border-end col-xl-3 col-sm-4 text-center">
             <a href="#check-out">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                     fill="#5f6368">
@@ -191,52 +227,59 @@
             </a>
             <input id="check-out" type="text" placeholder="退房日期">
         </div>
-        <div class="p-2 border-end"><button>立即訂房</button></div>
+        <div class="p-2 border-end col-xl-3 col-sm-4 text-center"><button>立即訂房</button></div>
     </div>
 
     <!-- 公告 -->
     <hr>
     <h1 style="text-align: center;">最新公告</h1>
-    <div class="row mt-3" style="width: 100%;margin-left: 0px;margin-right: 0px;">
-        <div class="col-lg-2 mx-1">
+    <!-- 公告介紹 -->
+    <div class="container">
+        <div class="row justify-content-center mt-3">
+            <div class="col-12 col-md-6 col-xxl-3 mb-3">
+                <div class="card text-center">
+                    <div class="card-header">年終旅遊特展</div>
+                    <div class="card-body">
+                        <img class="img-fluid" src="./img/card_T1.jpg">
+                        <h5 class="card-title">截止至12月底</h5>
+                        <p class="card-text">帶著大人小孩開心出遊</p>
+                    </div>
+                </div>
+            </div>
 
-        </div>
-        <div class="card col-lg-2 mx-1">
-            <div class="card-header">年終旅遊特展</div>
-            <div class="card-body">
-                <img class="img-fluid" src="./img/card_T1.jpg">
-                <h5 class="card-title">截止至12月底</h5>
-                <p class="card-text">帶著大人小孩開心出遊</p>
-            </div>
-        </div>
-        <div class="card col-lg-2 mx-1">
-            <div class="card-header">遊樂園特價限時10%</div>
-            <div class="card-body">
-                <img class="img-fluid" src="./img/card_2.jpg">
-                <h5 class="card-title">活動詳情請點下方連結</h5>
-                <p class="card-text"><a href="#">LEARN MORE</a></p>
-            </div>
-        </div>
-        <div class="card col-lg-2 mx-1">
-            <div class="card-header">水上趣味競賽</div>
-            <div class="card-body">
-                <img class="img-fluid" src="./img/card_3.jpg">
-                <h5 class="card-title">憑住宿即可參加</h5>
-                <p class="card-text">還可獲得精美小禮物，趕快來一起同樂吧</p>
-            </div>
-        </div>
-        <div class="card col-lg-2 mx-1">
-            <div class="card-header">住宿最高享35%</div>
-            <div class="card-body">
-                <img class="img-fluid" src="./img/card_4.jpg">
-                <h5 class="card-title">機會難得</h5>
-                <p class="card-text">慶祝中華職棒奪冠活動到明年1月</p>
-            </div>
-        </div>
-        <div class="col-lg-2 mx-1">
+            <div class="col-12 col-md-6 col-xxl-3 mb-3">
+                <div class="card text-center">
+                    <div class="card-header">遊樂園特價限時10%</div>
+                    <div class="card-body">
+                        <img class="img-fluid" src="./img/card_2.jpg">
+                        <h5 class="card-title">活動詳情請點下方連結</h5>
+                        <p class="card-text"><a href="#">LEARN MORE</a></p>
+                    </div>
+                </div>
 
-        </div>
+            </div>
+            <div class="col-12 col-md-6 col-xxl-3 mb-3">
+                <div class="card text-center">
+                    <div class="card-header">水上趣味競賽</div>
+                    <div class="card-body">
+                        <img class="img-fluid" src="./img/card_3.jpg">
+                        <h5 class="card-title">憑住宿即可參加</h5>
+                        <p class="card-text">還可獲得精美小禮物，趕快來一起同樂吧</p>
+                    </div>
+                </div>
 
+            </div>
+            <div class="col-12 col-md-6 col-xxl-3 mb-3">
+                <div class="card text-center">
+                    <div class="card-header">住宿最高享35%</div>
+                    <div class="card-body">
+                        <img class="img-fluid" src="./img/card_4.jpg">
+                        <h5 class="card-title">機會難得</h5>
+                        <p class="card-text">慶祝中華職棒奪冠活動到明年1月</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- 房型介紹 -->
@@ -244,7 +287,7 @@
     <h1 style="text-align: center;">房型介紹</h1>
     <div class="container">
         <!-- 每個 row 表示一列，內部只有 1 個 column -->
-        <div class="row" style="position: relative; height: 450px; overflow: hidden;">
+        <div class="row" style="position: relative; overflow: hidden;">
             <img id="RoomType1" src="./img/RoomType-1.jpg">
             <ul id="block1" style="list-style-type: none;">
                 <li style="font-size: 32pt; color: #fafafa;">
@@ -286,12 +329,27 @@
         </div>
     </div>
 
+    <!-- 內部設施 -->
+    <hr>
+    <h1 style="text-align: center;">內部設施</h1>
+
+    <!-- 交通資訊 -->
+    <hr>
+    <h1 style="text-align: center;">交通資訊</h1>
+    <div class="px-5 pt-1">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3700.726464231206!2d120.78973517589019!3d21.945064755676572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3471b1f2a6d83acb%3A0xa4141c59804f3cc0!2z5aSP6YO95rKZ54GY6YWS5bqX5rW354GY!5e0!3m2!1szh-TW!2stw!4v1734940724169!5m2!1szh-TW!2stw"
+            width=100% style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+
     <!-- Footer -->
-    <!-- <div class="container fixed-bottom">
-        <footer class="py-5">
+    <div class="container border-top">
+        <footer class="pt-5">
             <div class="row">
                 <div class="col-6 col-md-2 mb-3">
-                    <h5>關於我們</h5>
+                    <h5>最新公告</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">地理位置</a></li>
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
@@ -313,7 +371,7 @@
                 </div>
 
                 <div class="col-6 col-md-2 mb-3">
-                    <h5>強檔優惠</h5>
+                    <h5>內部設施</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
@@ -337,7 +395,7 @@
             </div>
 
             <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-                <p>&copy; 2022 Company, Inc. All rights reserved.</p>
+                <p>2024 網站設計~~</p>
                 <ul class="list-unstyled d-flex">
                     <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
                                 <use xlink:href="#twitter" />
@@ -351,7 +409,7 @@
                 </ul>
             </div>
         </footer>
-    </div> -->
+    </div>
 
     <script src="./_js/flatpickr.min.js"></script>
 
