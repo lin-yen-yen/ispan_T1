@@ -91,6 +91,40 @@
             align-items: flex-start;
             /* 對齊左側 */
         }
+
+
+        /* 房型滑過 */
+        .desc{
+            position: absolute;
+            bottom: 60px;
+            width: 100%;
+            font-size: 48px;
+            /* 設邊框,設計用 */
+            /* border: 5px solid orange; */
+            /* 針對全部做半透明 */
+            /* background-color: white;
+            opacity: 0.5; */
+            /* 針對背景顏色做半透明 */
+            background-color: rgba(255, 255, 255, 0.5);
+            /* 隱藏 */
+            visibility: hidden;
+            padding: 20px;
+            /* 增加padding */
+            box-sizing: border-box;
+        }
+
+        /* figure被觸碰子元素.desc顯示 */
+        figure:hover>.desc{
+            /* 隱藏元素，顯示 */
+            visibility: visible;
+        }
+
+        figure{
+            position: relative;
+            /* 設邊框，好設計 */
+            /* border: 5px solid red; */
+            width: 500px;
+        }
     </style>
 </head>
 
@@ -113,10 +147,10 @@
                 <!-- 導覽項目 -->
                 <ul class="nav nav-pills d-none d-md-flex pe-5">
                     <li class="nav-item"><a id="AdoutMe" href="#" class="nav-link">關於我們</a></li>
-                    <li class="nav-item"><a id="Latest" href="#" class="nav-link">最新公告</a></li>
-                    <li class="nav-item"><a id="RoomType" href="#" class="nav-link">房型介紹</a></li>
-                    <li class="nav-item"><a id="Traffic" href="#" class="nav-link">內部設施</a></li>
-                    <li class="nav-item"><a id="Facility" href="#" class="nav-link">交通資訊</a></li>
+                    <li class="nav-item"><a id="Latest" href="#new" class="nav-link">最新公告</a></li>
+                    <li class="nav-item"><a id="RoomType" href="#introduce" class="nav-link">房型介紹</a></li>
+                    <li class="nav-item"><a id="Traffic" href="#EntertainmentFacilities" class="nav-link">內部設施</a></li>
+                    <li class="nav-item"><a id="Facility" href="#TrafficInformation" class="nav-link">交通資訊</a></li>
                 </ul>
 
                 <!-- 漢堡選單按鈕（<=768px 顯示） -->
@@ -131,10 +165,11 @@
                     <ul class="navbar-nav me-lg-auto">
                         <li class="nav-item"><a id="AdoutMe1" href="#" class="nav-link active"
                                 aria-current="page">關於我們</a></li>
-                        <li class="nav-item"><a id="Latest1" href="#" class="nav-link">最新公告</a></li>
-                        <li class="nav-item"><a id="RoomType1" href="#" class="nav-link">房型介紹</a></li>
-                        <li class="nav-item"><a id="Traffic1" href="#" class="nav-link">交通資訊</a></li>
-                        <li class="nav-item"><a id="Facility1" href="#" class="nav-link">內部設施</a></li>
+                        <li class="nav-item"><a id="Latest1" href="#new" class="nav-link">最新公告</a></li>
+                        <li class="nav-item"><a id="RoomType1" href="#introduce" class="nav-link">房型介紹</a></li>
+                        <li class="nav-item"><a id="Traffic1" href="#EntertainmentFacilities" class="nav-link">內部設施</a>
+                        </li>
+                        <li class="nav-item"><a id="Facility1" href="#TrafficInformation" class="nav-link">交通資訊</a></li>
                     </ul>
                 </div>
             </div>
@@ -208,31 +243,31 @@
     <div class="row d-flex justify-content-center w-100" style="color: rgb(100, 100, 100); margin-top: 16px;">
         <span id="time" class="p-2 col-xl-3 col-sm-12 border-end text-center">時間</span>
         <div class="p-2 border-end col-xl-3 col-sm-4 text-center">
-            <a href="#check-in">
+            <a href="#checkIn">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                     fill="#5f6368">
                     <path
                         d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm280 240q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z" />
                 </svg>
             </a>
-            <input id="check-in" type="text" placeholder="入住日期">
+            <input id="checkIn" type="text" onchange="saveDates()" placeholder="入住日期">
         </div>
         <div class="p-2 border-end col-xl-3 col-sm-4 text-center">
-            <a href="#check-out">
+            <a href="#checkOut">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
                     fill="#5f6368">
                     <path
                         d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Zm280 240q-17 0-28.5-11.5T440-440q0-17 11.5-28.5T480-480q17 0 28.5 11.5T520-440q0 17-11.5 28.5T480-400Zm-160 0q-17 0-28.5-11.5T280-440q0-17 11.5-28.5T320-480q17 0 28.5 11.5T360-440q0 17-11.5 28.5T320-400Zm320 0q-17 0-28.5-11.5T600-440q0-17 11.5-28.5T640-480q17 0 28.5 11.5T680-440q0 17-11.5 28.5T640-400ZM480-240q-17 0-28.5-11.5T440-280q0-17 11.5-28.5T480-320q17 0 28.5 11.5T520-280q0 17-11.5 28.5T480-240Zm-160 0q-17 0-28.5-11.5T280-280q0-17 11.5-28.5T320-320q17 0 28.5 11.5T360-280q0 17-11.5 28.5T320-240Zm320 0q-17 0-28.5-11.5T600-280q0-17 11.5-28.5T640-320q17 0 28.5 11.5T680-280q0 17-11.5 28.5T640-240Z" />
                 </svg>
             </a>
-            <input id="check-out" type="text" placeholder="退房日期">
+            <input id="checkOut" type="text" onchange="saveDates()" placeholder="退房日期">
         </div>
-        <div class="p-2 border-end col-xl-3 col-sm-4 text-center"><button>立即訂房</button></div>
+        <div class="p-2 border-end col-xl-3 col-sm-4 text-center"><button onclick="bookRoom()">立即訂房</button></div>
     </div>
 
     <!-- 公告 -->
     <hr>
-    <h1 style="text-align: center;">最新公告</h1>
+    <h1 style="text-align: center;" id="new">最新公告</h1>
     <!-- 公告介紹 -->
     <div class="container">
         <div class="row justify-content-center mt-3">
@@ -284,7 +319,7 @@
 
     <!-- 房型介紹 -->
     <hr>
-    <h1 style="text-align: center;">房型介紹</h1>
+    <h1 style="text-align: center;" id="introduce">房型介紹</h1>
     <div class="container">
         <!-- 每個 row 表示一列，內部只有 1 個 column -->
         <div class="row" style="position: relative; overflow: hidden;">
@@ -310,37 +345,115 @@
             </ul>
         </div>
         <div class="row">
-            <img id="RoomType3" src="./img/RoomType3pp-3.jpg" style="padding-top: 10px;">
+            <figure>
+                <img id="RoomType3" src="./img/RoomType3pp-3.jpg" style="padding-top: 10px; width: 100%;">
+                <figcaption class="desc"><p>優雅舒適雙人房</p><p>$20,000</p></figcaption>
+            </figure>
         </div>
         <div class="row">
-            <img id="RoomType4" src="./img/RoomType4pp-4.jpg" style="padding-top: 10px;">
+            <figure>
+                <img id="RoomType4" src="./img/RoomType4pp-4.jpg" style="padding-top: 10px; width: 100%;">
+                <figcaption class="desc"><p>行旅首選三人房</p><p>$20,000</p></figcaption>
+            </figure>
         </div>
         <div class="row">
-            <img id="RoomType5" src="./img/RoomType-5.jpg" style="padding-top: 10px;">
-        </div>
-        <div class="row">
-            <img id="RoomType6" src="./img/RoomType4people-6.jpg" style="padding-top: 10px;">
-        </div>
-        <div class="row">
-            <img id="RoomType7" src="./img/RoomTypemanypp-7.jpg" style="padding-top: 10px;">
-        </div>
-        <div class="row">
-            <img id="RoomType8" src="./img/RoomTypemanypp-8.jpg" style="padding-top: 10px;">
+            <figure>
+                <img id="RoomType4" src="./img/RoomType-5.jpg" style="padding-top: 10px; width: 100%;">
+                <figcaption class="desc"><p>舒適小間四人房</p><p>$40,000</p></figcaption>
+            </figure>
         </div>
     </div>
 
     <!-- 內部設施 -->
     <hr>
-    <h1 style="text-align: center;">內部設施</h1>
+    <h1 style="text-align: center;" id="EntertainmentFacilities">內部設施</h1>
+    <!-- 游泳池介紹 -->
+    <div class="row py-3 w-100 m-0">
+        <div class="col-md-5 col-sm-10 col-12 rounded px-5"
+            style="display: flex; justify-content: center; align-items: center;">
+            <img class="rounded border border-dark p-2" src="./img/play.jpg" width="100%">
+        </div>
+
+        <div class="col-md-2 col-sm-2 col-12 d-flex justify-content-center align-items-center">
+            <h5 class="pt-3" style="writing-mode: vertical-rl; text-align: center;">遊泳池介紹</h5>
+        </div>
+
+        <div class="col-md-5 col-sm-12 col-12 d-flex justify-content-center align-items-center">
+            <p class="px-5 pt-3 m-0">
+                泳池的開放時間為每日07：00至21：00，並不定期舉辦池畔派對，讓旅客可以在水中享受音樂和派對的氣氛。此外，泳池區域採取預約制，以確保賓客能夠靜享悠閒時光。在享受陽光浴的同時，池畔還有日光躺椅、熱水浴池、蒸氣室及排毒烤箱等多種設施，讓運動後的你能夠徹底放鬆、洗滌身心。
+            </p>
+        </div>
+    </div>
+
+    <!-- 健身房介紹 -->
+    <div class="row py-3 w-100 m-0" style="background-color: #ffebd3; background-clip: content-box;">
+        <div class="col-md-5 col-sm-10 col-12 rounded px-5"
+            style="display: flex; justify-content: center; align-items: center;">
+            <img class="rounded border border-dark p-2" src="./img/play1.jpg" width="100%">
+        </div>
+
+        <div class="col-md-2 col-sm-2 col-12 d-flex justify-content-center align-items-center">
+            <h5 class="pt-3" style="writing-mode: vertical-rl; text-align: center;">健身房介紹</h5>
+        </div>
+
+        <div class="col-md-5 col-sm-12 col-12" style="display: grid; place-items: center;">
+            <p>對於注重健康的旅客而言，健身房是另一個不可或缺的設施。</p>
+            <p>
+                許多飯店均提供設備齊全的健身房，例如配備了啞鈴和瑜伽墊的健身區域，使得賓客即使在旅途中也能進行有效的健身訓練。
+            </p>
+            <p>
+                健身房通常會設有各類健身器材，如跑步機、健身車和重量訓練器材，供不同需求的賓客使用。
+                在健身房中，除了器材的多樣性，環境的設計也相當重要。許多飯店會利用明亮的自然光和通風設計，使得健身過程不至於感到壓迫，反而可以提升運動的愉悅感。
+            </p>
+        </div>
+    </div>
+
+    <!-- 麻將廳介紹 -->
+    <div class="row py-3 w-100 m-0">
+        <div class="col-md-5 col-sm-10 col-12 rounded px-5"
+            style="display: flex; justify-content: center; align-items: center;">
+            <img class="rounded border border-dark p-2" src="./img/play2.jpg" width="100%">
+        </div>
+
+        <div class="col-md-2 col-sm-2 col-12 d-flex justify-content-center align-items-center">
+            <h5 class="pt-3" style="writing-mode: vertical-rl; text-align: center;">麻將廳介紹</h5>
+        </div>
+
+        <div class="col-md-5 col-sm-12 col-12" style="padding-top: 8%;">
+            <p>隨著休閒娛樂的多樣化，電動麻將桌在飯店裡開始受到越來越多旅客的喜愛。</p>
+            <p>
+                這些設施不僅可以給旅客提供一個輕鬆的社交空間，也能讓人們在遊戲中放鬆身心。例如，某些飯店配備的電動麻將桌，不僅操作簡便，還具有自動洗牌、發牌的功能，讓你無需耗費太多時間準備，便可以快速進入遊戲狀態。
+            </p>
+        </div>
+    </div>
+
+    <!-- 飲料廳介紹 -->
+    <div class="row py-3 w-100 m-0" style="background-color: #ffebd3; background-clip: content-box;">
+        <div class="col-md-5 col-sm-10 col-12 rounded px-5"
+            style="display: flex; justify-content: center; align-items: center;">
+            <img class="rounded border border-dark p-2" src="./img/play3.jpg" width="100%">
+        </div>
+
+        <div class="col-md-2 col-sm-2 col-12 d-flex justify-content-center align-items-center">
+            <h5 class="pt-3" style="writing-mode: vertical-rl; text-align: center;">飲料廳介紹</h5>
+        </div>
+
+        <div class="col-md-5 col-sm-12 col-12" style="padding-top: 8%;">
+            <p>飯店內的飲料檯也是旅客休閒放鬆的好去處。這裡不僅提供各式飲品，還常常舉辦各類活動，如現場音樂表演或調酒工作坊，使得酒吧成為社交的熱點。優質的酒吧會設有多種酒品，從經典的雞尾酒到獨家的調酒，滿足不同旅客的味蕾需求。
+            </p>
+            <p>
+                綜合的氛圍設計，如燈光、音樂及座位配置，都旨在提供一個舒適、愉悅的社交環境。這裡常常是旅客交流的最佳場所，不論是舊友重聚還是結識新朋友，酒吧都能提供一個輕鬆的平臺。
+            </p>
+        </div>
+    </div>
 
     <!-- 交通資訊 -->
     <hr>
-    <h1 style="text-align: center;">交通資訊</h1>
+    <h1 style="text-align: center;" id="TrafficInformation">交通資訊</h1>
     <div class="px-5 pt-1">
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3700.726464231206!2d120.78973517589019!3d21.945064755676572!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3471b1f2a6d83acb%3A0xa4141c59804f3cc0!2z5aSP6YO95rKZ54GY6YWS5bqX5rW354GY!5e0!3m2!1szh-TW!2stw!4v1734940724169!5m2!1szh-TW!2stw"
-            width=100% style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
+            width=100% style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
         </iframe>
     </div>
 
@@ -351,51 +464,57 @@
                 <div class="col-6 col-md-2 mb-3">
                     <h5>最新公告</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">地理位置</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                        <li class="nav-item mb-2"><a href="#new" class="nav-link p-0 text-muted">年終旅遊特展</a></li>
+                        <li class="nav-item mb-2"><a href="#new" class="nav-link p-0 text-muted">遊樂園限時特價</a></li>
+                        <li class="nav-item mb-2"><a href="#new" class="nav-link p-0 text-muted">水上趣味競賽</a></li>
+                        <li class="nav-item mb-2"><a href="#new" class="nav-link p-0 text-muted">住宿最高享35%</a></li>
+                        <li class="nav-item mb-2"><a href="#new" class="nav-link p-0 text-muted">慶祝中華職棒奪冠活動</a></li>
                     </ul>
                 </div>
 
                 <div class="col-6 col-md-2 mb-3">
                     <h5>房型介紹</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                        <li class="nav-item mb-2"><a href="#introduce" class="nav-link p-0 text-muted">雅致雙人房</a></li>
+                        <li class="nav-item mb-2"><a href="#introduce" class="nav-link p-0 text-muted">奢華高貴雙人房</a></li>
+                        <li class="nav-item mb-2"><a href="#introduce" class="nav-link p-0 text-muted">優雅舒適雙人房</a></li>
+                        <li class="nav-item mb-2"><a href="#introduce" class="nav-link p-0 text-muted">行旅首選三人房</a></li>
+                        <li class="nav-item mb-2"><a href="#introduce" class="nav-link p-0 text-muted">舒適小間四人房</a></li>
                     </ul>
                 </div>
 
                 <div class="col-6 col-md-2 mb-3">
                     <h5>內部設施</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+                        <li class="nav-item mb-2"><a href="#EntertainmentFacilities"
+                                class="nav-link p-0 text-muted">游泳池</a></li>
+                        <li class="nav-item mb-2"><a href="#EntertainmentFacilities"
+                                class="nav-link p-0 text-muted">健身房</a></li>
+                        <li class="nav-item mb-2"><a href="#EntertainmentFacilities"
+                                class="nav-link p-0 text-muted">麻將廳</a></li>
+                        <li class="nav-item mb-2"><a href="#EntertainmentFacilities"
+                                class="nav-link p-0 text-muted">飲料廳</a></li>
                     </ul>
                 </div>
 
                 <div class="col-md-5 offset-md-1 mb-3">
                     <form>
-                        <h5>Subscribe to our newsletter</h5>
-                        <p>Monthly digest of what's new and exciting from us.</p>
+                        <h5>「在楓眠旅店享受微風中的寧靜與放鬆」</h5>
+                        <p>在喧囂的城市生活中，尋求一個寧靜的避風港是現代人共同的需求。</p>
+                        <p>楓眠旅店不僅注重舒適的住宿環境，更專注於細節的打造。我們精心選擇的裝飾色調與自然元素交相輝映，使得每個角落都洋溢著溫暖與安寧。我們相信，在這樣一個和諧的氛圍中，您將感受到前所未有的舒適與安逸，從而達到身心的平衡與放鬆。無論您來自何方，楓眠旅店都期待著與您共享這段獨特的靜謐之旅。
+                        </p>
                         <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                            <label for="newsletter1" class="visually-hidden">Email address</label>
-                            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                            <button class="btn btn-primary" type="button">Subscribe</button>
+                            <label for="emailInput">歡迎傳信件給我們:</label>
+                            <!-- placeholder="example@example.com" -->
+                            <input type="email" id="emailInput" value="terry61250718@gmail.com">
+                            <button onclick="sendEmail()">發送郵件</button>
                         </div>
                     </form>
                 </div>
             </div>
 
             <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-                <p>2024 網站設計~~</p>
+                <p>2024 楓眠旅店_網站設計</p>
                 <ul class="list-unstyled d-flex">
                     <li class="ms-3"><a class="link-dark" href="#"><svg class="bi" width="24" height="24">
                                 <use xlink:href="#twitter" />
@@ -476,15 +595,48 @@
 
 
 
-        flatpickr("#check-in", {
+        flatpickr("#checkIn", {
             dateFormat: "Y-m-d H:i", // 设置日期格式
             enableTime: true,
         });
 
-        flatpickr("#check-out", {
+        flatpickr("#checkOut", {
             dateFormat: "Y-m-d H:i", // 设置日期格式
             enableTime: true,
         });
+
+        // 當頁面加載時，檢查 LocalStorage 是否有儲存的日期資料，並顯示在 input 中
+        window.onload = function () {
+            if (localStorage.getItem('checkInDate')) {
+                document.getElementById('checkIn').value = localStorage.getItem('checkInDate');
+            }
+            if (localStorage.getItem('checkOutDate')) {
+                document.getElementById('checkOut').value = localStorage.getItem('checkOutDate');
+            }
+        };
+
+        // 當使用者改變日期時，儲存到 LocalStorage
+        function saveDates() {
+            const checkIn = document.getElementById('checkIn').value;
+            const checkOut = document.getElementById('checkOut').value;
+
+            // 儲存到 LocalStorage
+            localStorage.setItem('checkInDate', checkIn);
+            localStorage.setItem('checkOutDate', checkOut);
+        }
+
+        // 當按下立即訂房按鈕時，顯示日期
+        function bookRoom() {
+            const checkIn = localStorage.getItem('checkInDate');
+            const checkOut = localStorage.getItem('checkOutDate');
+
+            if (checkIn && checkOut) {
+                alert(`您的住房日期是：${checkIn}\n退房日期是：${checkOut}`);
+            } else {
+                alert('請填寫完整的日期');
+            }
+        }
+
 
         // 房型動畫
         document.addEventListener("scroll", function () {
@@ -524,6 +676,21 @@
 
         // 所有動畫時間拉長10倍
         document.documentElement.style.setProperty('--animate-duration', '10s');
+
+
+        // 當按下發送郵件按鈕時
+        function sendEmail() {
+            // 獲取 input 元素中的電子郵件值
+            const email = document.getElementById('emailInput').value;
+
+            // 檢查是否輸入了有效的電子郵件
+            if (email != null) {
+                // 使用 mailto 協議打開郵件客戶端，將 email 填入收件人欄位
+                window.location.href = `mailto:${email}?subject=您好有什麼問題?&body=您好，楓眠旅店致上最高的敬意。`;
+            } else {
+                alert("請輸入有效的電子郵件地址！");
+            }
+        }
     </script>
 </body>
 
